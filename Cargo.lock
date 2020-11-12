@@ -337,3 +337,9 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "thiserror"
+version = "1.0.39"
+source = "registry+https://github.com/rust-lang/crates.io-index"

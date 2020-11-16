@@ -389,3 +389,15 @@ dependencies = [
  "argh",
  "bstr",
  "chardetng",
+ "crc32fast",
+ "encoding_rs",
+ "filetime",
+ "flate2",
+ "memmap2",
+ "rayon",
+ "time",
+ "zip-parser",
+ "zstd",
+]
+
+[[package]]

@@ -13,3 +13,12 @@ members = [ "zip-parser" ]
 
 [dependencies]
 zip-parser = { path = "zip-parser" }
+
+# tools
+anyhow = "1"
+argh = "0.1"
+bstr = "1"
+
+# fast
+rayon = "1"
+memmap2 = "0.5"

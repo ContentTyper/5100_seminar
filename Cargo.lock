@@ -502,3 +502,4 @@ dependencies = [
  "cc",
  "libc",
  "pkg-config",
+]

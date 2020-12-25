@@ -22,3 +22,10 @@ bstr = "1"
 # fast
 rayon = "1"
 memmap2 = "0.5"
+
+# check
+crc32fast = "1"
+
+# compress
+flate2 = "1"
+zstd = { version = "0.12", features = [ "pkg-config" ] }

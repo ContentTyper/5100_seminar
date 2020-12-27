@@ -29,3 +29,11 @@ crc32fast = "1"
 # compress
 flate2 = "1"
 zstd = { version = "0.12", features = [ "pkg-config" ] }
+
+# encoding
+encoding_rs = "0.8"
+chardetng = "0.1"
+
+# time
+time = "0.3"
+filetime = "0.2"

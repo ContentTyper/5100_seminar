@@ -24,3 +24,5 @@ see https://infozip.sourceforge.net/UnZip.html
 and https://github.com/archlinux/svntogit-packages/blob/packages/unzip/trunk/PKGBUILD#L16
 
 # License
+
+MIT

@@ -31,3 +31,17 @@ struct Options {
     exdir: Option<PathBuf>,
 
     /// specify character set used to decode filename,
+    /// which will be automatically detected by default.
+    #[argh(option, short = 'O')]
+    charset: Option<String>,
+
+    /// try to keep the original filename,
+    /// which will ignore the charset.
+    #[argh(switch)]
+    keep_origin_filename: bool
+}
+
+fn main() -> anyhow::Result<()> {
+    let options: Options = argh::from_env();
+
+    let target_dir = if let Some(exdir) = options.exdir {

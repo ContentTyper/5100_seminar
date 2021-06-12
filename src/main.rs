@@ -45,3 +45,15 @@ fn main() -> anyhow::Result<()> {
     let options: Options = argh::from_env();
 
     let target_dir = if let Some(exdir) = options.exdir {
+        exdir
+    } else {
+        env::current_dir()?
+    };
+    let encoding = if options.keep_origin_filename {
+        FilenameEncoding::Os
+    } else if let Some(label) = options.charset {
+        let encoding = Encoding::for_label(label.as_bytes()).context("invalid encoding label")?;
+        FilenameEncoding::Charset(encoding)
+    } else {
+        FilenameEncoding::Auto
+    };

@@ -57,3 +57,25 @@ fn main() -> anyhow::Result<()> {
     } else {
         FilenameEncoding::Auto
     };
+
+    for file in options.file.iter() {
+        unzip(encoding, &target_dir, file)?;
+    }
+
+    Ok(())
+}
+
+fn unzip(encoding: FilenameEncoding, target_dir: &Path, path: &Path) -> anyhow::Result<()> {
+    println!("Archive: {}", path.display());
+
+    let fd = fs::File::open(path)?;
+    let buf = unsafe {
+        MmapOptions::new().map_copy_read_only(&fd)?
+    };
+
+    let zip = ZipArchive::parse(&buf)?;
+    let len: usize = zip.eocdr().cd_entries.try_into()?;
+    let len = cmp::min(len, 128);
+
+    zip.entries()?
+        .try_fold(Vec::with_capacity(len), |mut acc, e| e.map(|e| {

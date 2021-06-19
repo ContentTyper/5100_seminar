@@ -89,3 +89,13 @@ fn unzip(encoding: FilenameEncoding, target_dir: &Path, path: &Path) -> anyhow::
 }
 
 fn do_entry(
+    encoding: FilenameEncoding,
+    zip: &ZipArchive<'_>,
+    cfh: &CentralFileHeader<'_>,
+    target_dir: &Path
+) -> anyhow::Result<()> {
+    let (_lfh, buf) = zip.read(cfh)?;
+
+    if cfh.gp_flag & 1 != 0 {
+        anyhow::bail!("encrypt is not supported");
+    }

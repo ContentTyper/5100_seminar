@@ -110,3 +110,14 @@ fn do_entry(
     } else {
         do_file(cfh, target_dir, &path, buf)?;
     }
+
+    Ok(())
+}
+
+fn do_dir(target_dir: &Path, path: &Path) -> anyhow::Result<()> {
+    let target = path_join(target_dir, path)?;
+
+    fs::create_dir_all(target)
+        .or_else(|err| if err.kind() == io::ErrorKind::AlreadyExists {
+            Ok(())
+        } else {

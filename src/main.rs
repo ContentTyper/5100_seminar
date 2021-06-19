@@ -79,3 +79,13 @@ fn unzip(encoding: FilenameEncoding, target_dir: &Path, path: &Path) -> anyhow::
 
     zip.entries()?
         .try_fold(Vec::with_capacity(len), |mut acc, e| e.map(|e| {
+            acc.push(e);
+            acc
+        }))?
+        .par_iter()
+        .try_for_each(|cfh| do_entry(encoding, &zip, &cfh, target_dir))?;
+
+    Ok(())
+}
+
+fn do_entry(

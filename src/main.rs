@@ -121,3 +121,18 @@ fn do_dir(target_dir: &Path, path: &Path) -> anyhow::Result<()> {
         .or_else(|err| if err.kind() == io::ErrorKind::AlreadyExists {
             Ok(())
         } else {
+            Err(err)
+        })
+        .with_context(|| path.display().to_string())?;
+
+    println!("   creating: {}", path.display());
+
+    Ok(())
+}
+
+fn do_file(
+    cfh: &CentralFileHeader,
+    target_dir: &Path,
+    path: &Path,
+    buf: &[u8]
+) -> anyhow::Result<()> {

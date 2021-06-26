@@ -136,3 +136,16 @@ fn do_file(
     path: &Path,
     buf: &[u8]
 ) -> anyhow::Result<()> {
+    let target = path_join(target_dir, path)?;
+
+    let reader = match cfh.method {
+        compress::STORE => Decoder::None(buf),
+        compress::DEFLATE => Decoder::Deflate(DeflateDecoder::new(buf)),
+        compress::ZSTD => Decoder::Zstd(ZstdDecoder::with_buffer(buf)?),
+        _ => anyhow::bail!("compress method is not supported: {}", cfh.method)
+    };
+    // prevent zipbomb
+    let reader = reader.take(cfh.uncomp_size.into());
+    let mut reader = Crc32Checker::new(reader, cfh.crc32);
+
+    let mtime = {

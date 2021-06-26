@@ -160,3 +160,16 @@ fn do_file(
     io::copy(&mut reader, &mut fd)?;
 
     filetime::set_file_handle_times(&fd, None, Some(mtime))?;
+
+    #[cfg(unix)]
+    if cfh.ext_attrs != 0 && cfh.made_by_ver >> 8 == system::UNIX {
+        use std::os::unix::fs::PermissionsExt;
+
+        let perm = fs::Permissions::from_mode(cfh.ext_attrs >> 16);
+        fd.set_permissions(sanitize_setuid(perm))?;
+    }
+
+    println!("  inflating: {}", path.display());
+
+    Ok(())
+}

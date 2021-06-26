@@ -149,3 +149,14 @@ fn do_file(
     let mut reader = Crc32Checker::new(reader, cfh.crc32);
 
     let mtime = {
+        let time = dos2time(cfh.mod_date, cfh.mod_time)?.assume_utc();
+        let unix_timestamp = time.unix_timestamp();
+        let nanos = time.nanosecond();
+        filetime::FileTime::from_unix_time(unix_timestamp, nanos)
+    };
+
+    let mut fd = path_open(&target).with_context(|| path.display().to_string())?;
+
+    io::copy(&mut reader, &mut fd)?;
+
+    filetime::set_file_handle_times(&fd, None, Some(mtime))?;

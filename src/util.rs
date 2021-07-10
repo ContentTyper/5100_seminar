@@ -3,4 +3,4 @@ use std::path::{ Path, PathBuf, Component };
 use std::borrow::Cow;
 use anyhow::Context;
 use bstr::ByteSlice;
-use enco
+use encoding_rs::Encodi

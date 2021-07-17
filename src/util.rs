@@ -4,4 +4,5 @@ use std::borrow::Cow;
 use anyhow::Context;
 use bstr::ByteSlice;
 use encoding_rs::Encoding;
-use flate2::bufread::De
+use flate2::bufread::DeflateDecoder;
+us

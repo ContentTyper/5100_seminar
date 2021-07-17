@@ -5,4 +5,4 @@ use anyhow::Context;
 use bstr::ByteSlice;
 use encoding_rs::Encoding;
 use flate2::bufread::DeflateDecoder;
-use zstd::s
+use zstd::stream::re

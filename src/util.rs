@@ -8,4 +8,4 @@ use flate2::bufread::DeflateDecoder;
 use zstd::stream::read::Decoder as ZstdDecoder;
 
 
-pub enum D
+pub enum Decoder<R: io::B

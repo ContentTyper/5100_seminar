@@ -9,4 +9,5 @@ use zstd::stream::read::Decoder as ZstdDecoder;
 
 
 pub enum Decoder<R: io::BufRead> {
-    No
+    None(R),
+    Defla

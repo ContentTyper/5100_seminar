@@ -11,4 +11,7 @@ use zstd::stream::read::Decoder as ZstdDecoder;
 pub enum Decoder<R: io::BufRead> {
     None(R),
     Deflate(DeflateDecoder<R>),
-    Zstd(ZstdDecoder<'static, R>
+    Zstd(ZstdDecoder<'static, R>)
+}
+
+imp

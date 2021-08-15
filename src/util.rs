@@ -14,4 +14,4 @@ pub enum Decoder<R: io::BufRead> {
     Zstd(ZstdDecoder<'static, R>)
 }
 
-impl<R: io::BufRead
+impl<R: io::BufRead> io::Read

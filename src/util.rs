@@ -15,4 +15,4 @@ pub enum Decoder<R: io::BufRead> {
 }
 
 impl<R: io::BufRead> io::Read for Decoder<R> {
-    fn r
+    fn read(&mut 

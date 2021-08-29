@@ -17,4 +17,4 @@ pub enum Decoder<R: io::BufRead> {
 impl<R: io::BufRead> io::Read for Decoder<R> {
     fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
         match self {
-            Decoder
+            Decoder::None(reader)

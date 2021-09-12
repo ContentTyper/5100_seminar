@@ -18,4 +18,5 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
     fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
         match self {
             Decoder::None(reader) => io::Read::read(reader, buf),
-            Decoder::Deflate(reader) => io::Read::read(read
+            Decoder::Deflate(reader) => io::Read::read(reader, buf),
+   

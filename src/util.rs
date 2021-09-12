@@ -19,4 +19,4 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
         match self {
             Decoder::None(reader) => io::Read::read(reader, buf),
             Decoder::Deflate(reader) => io::Read::read(reader, buf),
-            De
+            Decoder::Zstd(

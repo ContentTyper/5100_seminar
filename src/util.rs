@@ -20,4 +20,6 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
             Decoder::None(reader) => io::Read::read(reader, buf),
             Decoder::Deflate(reader) => io::Read::read(reader, buf),
             Decoder::Zstd(reader) => io::Read::read(reader, buf)
-  
+        }
+    }
+}

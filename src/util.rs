@@ -23,3 +23,5 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
         }
     }
 }
+
+pub struct 

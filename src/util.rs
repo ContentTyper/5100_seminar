@@ -24,4 +24,4 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
     }
 }
 
-pub struct 
+pub struct Crc32Check

@@ -27,4 +27,4 @@ impl<R: io::BufRead> io::Read for Decoder<R> {
 pub struct Crc32Checker<R> {
     reader: R,
     expect: u32,
-    hasher: crc32
+    hasher: crc32fast::Ha

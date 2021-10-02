@@ -30,4 +30,4 @@ pub struct Crc32Checker<R> {
     hasher: crc32fast::Hasher,
 }
 
-impl<R> Crc32C
+impl<R> Crc32Checker<R> 

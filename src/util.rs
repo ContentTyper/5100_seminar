@@ -31,4 +31,4 @@ pub struct Crc32Checker<R> {
 }
 
 impl<R> Crc32Checker<R> {
-    pub fn new(
+    pub fn new(reader: 

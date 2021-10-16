@@ -33,4 +33,4 @@ pub struct Crc32Checker<R> {
 impl<R> Crc32Checker<R> {
     pub fn new(reader: R, expect: u32) -> Crc32Checker<R> {
         Crc32Checker {
-        
+            reader, exp

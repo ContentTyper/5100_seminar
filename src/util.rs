@@ -35,4 +35,6 @@ impl<R> Crc32Checker<R> {
         Crc32Checker {
             reader, expect,
             hasher: crc32fast::Hasher::new()
-    
+        }
+    }
+}

@@ -38,3 +38,5 @@ impl<R> Crc32Checker<R> {
         }
     }
 }
+
+impl<R: i

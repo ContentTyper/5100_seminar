@@ -39,4 +39,4 @@ impl<R> Crc32Checker<R> {
     }
 }
 
-impl<R: io::Read> io::R
+impl<R: io::Read> io::Read for Crc

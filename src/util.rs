@@ -40,4 +40,4 @@ impl<R> Crc32Checker<R> {
 }
 
 impl<R: io::Read> io::Read for Crc32Checker<R> {
-    fn 
+    fn read(&mut sel

@@ -40,4 +40,5 @@ impl<R> Crc32Checker<R> {
 }
 
 impl<R: io::Read> io::Read for Crc32Checker<R> {
-    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> 
+    fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
+       

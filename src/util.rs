@@ -43,4 +43,5 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
     fn read(&mut self, buf: &mut [u8]) -> io::Result<usize> {
         let n = io::Read::read(&mut self.reader, buf)?;
 
-        if n == 0
+        if n == 0 {
+            le

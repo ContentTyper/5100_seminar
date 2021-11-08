@@ -44,4 +44,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
         let n = io::Read::read(&mut self.reader, buf)?;
 
         if n == 0 {
-            let crc = se
+            let crc = self.hash

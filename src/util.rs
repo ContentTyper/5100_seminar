@@ -45,4 +45,5 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
 
         if n == 0 {
             let crc = self.hasher.clone().finalize();
-            if crc != self.e
+            if crc != self.expect {
+     

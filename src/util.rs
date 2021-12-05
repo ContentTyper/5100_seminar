@@ -47,4 +47,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
             let crc = self.hasher.clone().finalize();
             if crc != self.expect {
                 let msg = format!("crc32 check failed. expect: {}, got: {}",
-                    se
+                    self.expect

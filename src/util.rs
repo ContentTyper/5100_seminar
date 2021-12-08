@@ -48,4 +48,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
             if crc != self.expect {
                 let msg = format!("crc32 check failed. expect: {}, got: {}",
                     self.expect,
-              
+                    crc

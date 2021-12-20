@@ -50,4 +50,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
                     self.expect,
                     crc
                 );
-                return Err(io::Error::new(io::ErrorKi
+                return Err(io::Error::new(io::ErrorKind::Inval

@@ -53,4 +53,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
                 return Err(io::Error::new(io::ErrorKind::InvalidData, msg))
             }
         } else {
-            
+            self.hashe

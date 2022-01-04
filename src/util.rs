@@ -54,4 +54,6 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
             }
         } else {
             self.hasher.update(&buf[..n]);
-     
+        }
+
+    

@@ -60,4 +60,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
     }
 }
 
-#[deri
+#[derive(Clone, Co

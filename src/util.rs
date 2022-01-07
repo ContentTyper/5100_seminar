@@ -60,4 +60,5 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
     }
 }
 
-#[derive(Clone, Co
+#[derive(Clone, Copy)]
+pub enu

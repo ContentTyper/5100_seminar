@@ -63,4 +63,4 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
 #[derive(Clone, Copy)]
 pub enum FilenameEncoding {
     Os,
-    Cha
+    Charset(&'st

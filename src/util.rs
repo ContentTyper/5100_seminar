@@ -61,4 +61,5 @@ impl<R: io::Read> io::Read for Crc32Checker<R> {
 }
 
 #[derive(Clone, Copy)]
-pub enum File
+pub enum FilenameEncoding {
+  

@@ -67,4 +67,4 @@ pub enum FilenameEncoding {
     Auto
 }
 
-impl Filena
+impl FilenameEncoding {

@@ -65,3 +65,6 @@ pub enum FilenameEncoding {
     Os,
     Charset(&'static Encoding),
     Auto
+}
+
+impl Filena

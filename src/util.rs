@@ -68,3 +68,4 @@ pub enum FilenameEncoding {
 }
 
 impl FilenameEncoding {
+    pub

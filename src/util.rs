@@ -68,4 +68,4 @@ pub enum FilenameEncoding {
 }
 
 impl FilenameEncoding {
-    pub fn decode<'a>(self, name: &'a [u8]) -> anyhow::Result<Cow<
+    pub fn decode<'a>(self, name: &'a [u8]) -> anyhow::Result<Cow<'a, Path>> {

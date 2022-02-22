@@ -72,4 +72,4 @@ impl FilenameEncoding {
         fn cow_str_to_path<'a>(name: Cow<'a, str>) -> Cow<'a, Path> {
             match name {
                 Cow::Borrowed(name) => Cow::Borrowed(Path::new(name)),
-                Cow::Owned(name) => Cow::Ow
+                Cow::Owned(name) => Cow::Owned(name.

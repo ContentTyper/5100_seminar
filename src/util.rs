@@ -74,3 +74,6 @@ impl FilenameEncoding {
                 Cow::Borrowed(name) => Cow::Borrowed(Path::new(name)),
                 Cow::Owned(name) => Cow::Owned(name.into())
             }
+        }
+
+  

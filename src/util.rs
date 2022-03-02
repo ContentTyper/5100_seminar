@@ -78,4 +78,4 @@ impl FilenameEncoding {
 
         match self {
             FilenameEncoding::Os => {
-             
+                name.to_pa

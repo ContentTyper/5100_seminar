@@ -79,4 +79,5 @@ impl FilenameEncoding {
         match self {
             FilenameEncoding::Os => {
                 name.to_path()
-                    .map(Cow::
+                    .map(Cow::Borrowed)
+     

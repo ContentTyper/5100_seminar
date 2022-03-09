@@ -80,4 +80,4 @@ impl FilenameEncoding {
             FilenameEncoding::Os => {
                 name.to_path()
                     .map(Cow::Borrowed)
-     
+                    .co

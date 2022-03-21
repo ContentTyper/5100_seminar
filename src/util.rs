@@ -81,4 +81,4 @@ impl FilenameEncoding {
                 name.to_path()
                     .map(Cow::Borrowed)
                     .context("Convert to os str failed")
-                    .with_context(|| String::fro
+                    .with_context(|| String::from_utf8_los

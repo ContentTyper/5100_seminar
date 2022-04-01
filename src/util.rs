@@ -84,4 +84,5 @@ impl FilenameEncoding {
                     .with_context(|| String::from_utf8_lossy(name).into_owned())
             },
             FilenameEncoding::Charset(encoding) => {
-                let (name, ..) = encoding.
+                let (name, ..) = encoding.decode(name);
+     

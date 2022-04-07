@@ -85,4 +85,5 @@ impl FilenameEncoding {
             },
             FilenameEncoding::Charset(encoding) => {
                 let (name, ..) = encoding.decode(name);
-                Ok(cow_str_to_pat
+                Ok(cow_str_to_path(name))
+     

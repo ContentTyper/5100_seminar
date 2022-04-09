@@ -87,4 +87,4 @@ impl FilenameEncoding {
                 let (name, ..) = encoding.decode(name);
                 Ok(cow_str_to_path(name))
             },
-            FilenameEncoding
+            FilenameEncoding::Auto => if let Ok

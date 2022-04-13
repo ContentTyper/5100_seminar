@@ -90,4 +90,4 @@ impl FilenameEncoding {
             FilenameEncoding::Auto => if let Ok(name) = std::str::from_utf8(name) {
                 Ok(Path::new(name).into())
             } else {
-                let mut 
+                let mut encoding_detector = 

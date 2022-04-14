@@ -91,4 +91,4 @@ impl FilenameEncoding {
                 Ok(Path::new(name).into())
             } else {
                 let mut encoding_detector = chardetng::EncodingDetector::new();
-                encoding
+                encoding_detector.

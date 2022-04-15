@@ -92,4 +92,4 @@ impl FilenameEncoding {
             } else {
                 let mut encoding_detector = chardetng::EncodingDetector::new();
                 encoding_detector.feed(name, true);
-                let (name, ..) = encoding_detecto
+                let (name, ..) = encoding_detector.guess(None, fals

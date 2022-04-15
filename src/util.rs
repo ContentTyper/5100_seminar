@@ -93,4 +93,5 @@ impl FilenameEncoding {
                 let mut encoding_detector = chardetng::EncodingDetector::new();
                 encoding_detector.feed(name, true);
                 let (name, ..) = encoding_detector.guess(None, false).decode(name);
-                Ok(cow_str_to_path(nam
+                Ok(cow_str_to_path(name))
+          

@@ -94,4 +94,5 @@ impl FilenameEncoding {
                 encoding_detector.feed(name, true);
                 let (name, ..) = encoding_detector.guess(None, false).decode(name);
                 Ok(cow_str_to_path(name))
-          
+            }
+      

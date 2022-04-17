@@ -99,4 +99,4 @@ impl FilenameEncoding {
     }
 }
 
-pub
+pub fn dos2t

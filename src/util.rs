@@ -95,4 +95,8 @@ impl FilenameEncoding {
                 let (name, ..) = encoding_detector.guess(None, false).decode(name);
                 Ok(cow_str_to_path(name))
             }
-      
+        }
+    }
+}
+
+pub

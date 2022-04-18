@@ -99,4 +99,4 @@ impl FilenameEncoding {
     }
 }
 
-pub fn dos2time(dos_date:
+pub fn dos2time(dos_date: u16, dos_t

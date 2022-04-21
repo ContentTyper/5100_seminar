@@ -102,4 +102,5 @@ impl FilenameEncoding {
 pub fn dos2time(dos_date: u16, dos_time: u16)
     -> anyhow::Result<time::PrimitiveDateTime>
 {
-    let sec = (dos_time & 0x1
+    let sec = (dos_time & 0x1f) * 2;
+    let

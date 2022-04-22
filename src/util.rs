@@ -103,4 +103,5 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     -> anyhow::Result<time::PrimitiveDateTime>
 {
     let sec = (dos_time & 0x1f) * 2;
-    let min = (dos_time >> 5) & 0x3
+    let min = (dos_time >> 5) & 0x3f;
+    le

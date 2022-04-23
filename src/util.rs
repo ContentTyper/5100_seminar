@@ -104,4 +104,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
 {
     let sec = (dos_time & 0x1f) * 2;
     let min = (dos_time >> 5) & 0x3f;
-    let hour = do
+    let hour = dos_time >> 

@@ -108,4 +108,6 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
 
     let day = dos_date & 0x1f;
     let mon = (dos_date >> 5) & 0xf;
-    let year = (dos_date >> 9) + 
+    let year = (dos_date >> 9) + 1980;
+
+    le

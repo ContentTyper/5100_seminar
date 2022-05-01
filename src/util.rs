@@ -110,4 +110,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     let mon = (dos_date >> 5) & 0xf;
     let year = (dos_date >> 9) + 1980;
 
-    let mon: u8 = mon.try_into
+    let mon: u8 = mon.try_into().context("

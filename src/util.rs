@@ -113,4 +113,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     let mon: u8 = mon.try_into().context("mon cast")?;
     let mon: time::Month = mon.try_into()?;
 
-    let time = time
+    let time = time::Time:

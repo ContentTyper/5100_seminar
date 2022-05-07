@@ -115,4 +115,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
 
     let time = time::Time::from_hms(
         hour.try_into().context("hour cast")?,
-        min.try_into().co
+        min.try_into().context("min

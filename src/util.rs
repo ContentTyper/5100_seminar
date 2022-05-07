@@ -114,4 +114,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     let mon: time::Month = mon.try_into()?;
 
     let time = time::Time::from_hms(
-        hour.tr
+        hour.try_into().c

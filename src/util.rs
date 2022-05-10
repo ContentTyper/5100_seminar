@@ -118,4 +118,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
         min.try_into().context("min cast")?,
         sec.try_into().context("sec cast")?
     )?;
-    let date = time
+    let date = time::Date::from_ca

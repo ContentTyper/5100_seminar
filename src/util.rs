@@ -117,4 +117,5 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
         hour.try_into().context("hour cast")?,
         min.try_into().context("min cast")?,
         sec.try_into().context("sec cast")?
-    )?
+    )?;
+    let

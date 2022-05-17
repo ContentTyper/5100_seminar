@@ -124,4 +124,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
         day.try_into().context("day cast")?
     )?;
 
-    Ok(date.with_time(ti
+    Ok(date.with_time(time))

@@ -122,4 +122,6 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
         year.try_into().context("year cast")?,
         mon,
         day.try_into().context("day cast")?
-  
+    )?;
+
+    

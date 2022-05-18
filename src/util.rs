@@ -125,3 +125,6 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     )?;
 
     Ok(date.with_time(time))
+}
+
+pub fn pat

@@ -127,4 +127,4 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
     Ok(date.with_time(time))
 }
 
-pub fn path_join(base: &Path, path: &Path) -> anyhow::Resul
+pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathB

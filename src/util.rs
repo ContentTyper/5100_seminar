@@ -129,4 +129,5 @@ pub fn dos2time(dos_date: u16, dos_time: u16)
 
 pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
     // check path
-    path.component
+    path.components()
+       

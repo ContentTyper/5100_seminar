@@ -132,4 +132,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
     path.components()
         .try_fold(0u32, |mut depth, next| {
             match next {
-              
+                Component::R

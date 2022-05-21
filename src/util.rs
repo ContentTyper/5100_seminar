@@ -133,4 +133,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
         .try_fold(0u32, |mut depth, next| {
             match next {
                 Component::RootDir | Component::Prefix(_) =>
-                    anyhow::bail!("must relative p
+                    anyhow::bail!("must relative path: {:?}", 

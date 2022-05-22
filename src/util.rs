@@ -135,4 +135,5 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                 Component::RootDir | Component::Prefix(_) =>
                     anyhow::bail!("must relative path: {:?}", path),
                 Component::Normal(_) => depth += 1,
-                Component::ParentDir => 
+                Component::ParentDir => {
+          

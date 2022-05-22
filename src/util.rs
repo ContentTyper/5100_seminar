@@ -134,4 +134,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
             match next {
                 Component::RootDir | Component::Prefix(_) =>
                     anyhow::bail!("must relative path: {:?}", path),
-                Component::No
+                Component::Normal(_) => depth +

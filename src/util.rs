@@ -136,4 +136,5 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                     anyhow::bail!("must relative path: {:?}", path),
                 Component::Normal(_) => depth += 1,
                 Component::ParentDir => {
-                    depth = depth.ch
+                    depth = depth.checked_sub(1)
+   

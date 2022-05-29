@@ -137,4 +137,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                 Component::Normal(_) => depth += 1,
                 Component::ParentDir => {
                     depth = depth.checked_sub(1)
-                        .context("filename over the
+                        .context("filename over the path lim

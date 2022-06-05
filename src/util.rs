@@ -140,4 +140,5 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                         .context("filename over the path limit")
                         .with_context(|| path.display().to_string())?;
                 },
-                Component::Cu
+                Component::CurDir => ()
+ 

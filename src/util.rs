@@ -141,4 +141,6 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                         .with_context(|| path.display().to_string())?;
                 },
                 Component::CurDir => ()
-            
+            }
+
+      

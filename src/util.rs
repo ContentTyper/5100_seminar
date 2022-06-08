@@ -143,4 +143,5 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
                 Component::CurDir => ()
             }
 
-            Ok(dept
+            Ok(depth)
+        })?;

@@ -146,4 +146,6 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
             Ok(depth)
         })?;
 
-    Ok(base.join
+    Ok(base.join(path))
+}
+

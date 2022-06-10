@@ -149,4 +149,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
     Ok(base.join(path))
 }
 
-pub fn path_open(path: &Path) -> io::Res
+pub fn path_open(path: &Path) -> io::Result<fs::File> {

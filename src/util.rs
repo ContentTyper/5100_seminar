@@ -150,4 +150,4 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
 }
 
 pub fn path_open(path: &Path) -> io::Result<fs::File> {
-    let mut o
+    let mut open_opti

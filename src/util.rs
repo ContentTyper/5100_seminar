@@ -153,4 +153,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
     let mut open_options = fs::File::options();
     open_options.write(true).append(true).create_new(true);
 
-    match open_opti
+    match open_options.open(pat

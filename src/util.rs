@@ -151,4 +151,6 @@ pub fn path_join(base: &Path, path: &Path) -> anyhow::Result<PathBuf> {
 
 pub fn path_open(path: &Path) -> io::Result<fs::File> {
     let mut open_options = fs::File::options();
-    open_options.write(true).append(true).create_new(tr
+    open_options.write(true).append(true).create_new(true);
+
+    match 

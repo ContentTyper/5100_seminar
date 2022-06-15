@@ -154,4 +154,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
     open_options.write(true).append(true).create_new(true);
 
     match open_options.open(path) {
-       
+        Ok(fd) => Ok(fd),

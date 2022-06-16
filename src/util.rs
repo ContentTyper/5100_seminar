@@ -156,4 +156,5 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
     match open_options.open(path) {
         Ok(fd) => Ok(fd),
         Err(err) => {
-            // parent dir n
+            // parent dir not found
+       

@@ -157,4 +157,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
         Ok(fd) => Ok(fd),
         Err(err) => {
             // parent dir not found
-            if err.ki
+            if err.kind() == 

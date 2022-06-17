@@ -158,4 +158,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
         Err(err) => {
             // parent dir not found
             if err.kind() == io::ErrorKind::NotFound {
-                if
+                if let Some(d

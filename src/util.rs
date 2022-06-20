@@ -159,4 +159,5 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
             // parent dir not found
             if err.kind() == io::ErrorKind::NotFound {
                 if let Some(dir) = path.parent() {
-                    fs::create_dir_a
+                    fs::create_dir_all(dir)
+    

@@ -163,4 +163,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
                         .or_else(|err| if err.kind() == io::ErrorKind::AlreadyExists {
                             Ok(())
                         } else {
-            
+                            E

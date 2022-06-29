@@ -165,4 +165,5 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
                         } else {
                             Err(err)
                         })?;
-                    return open_options.open(pat
+                    return open_options.open(path);
+    

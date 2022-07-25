@@ -169,4 +169,6 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
                 }
             }
 
-            Err
+            Err(err)
+        }
+  

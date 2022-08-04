@@ -174,4 +174,5 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
     }
 }
 
-#[cfg(u
+#[cfg(unix)]
+pub fn sa

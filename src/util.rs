@@ -175,4 +175,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
 }
 
 #[cfg(unix)]
-pub fn sa
+pub fn sanitize_setui

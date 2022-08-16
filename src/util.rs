@@ -176,4 +176,4 @@ pub fn path_open(path: &Path) -> io::Result<fs::File> {
 
 #[cfg(unix)]
 pub fn sanitize_setuid(input: std::fs::Permissions) -> std::fs::Permissions {
-    use std::os::uni
+    use std::os::unix::fs::Permissio

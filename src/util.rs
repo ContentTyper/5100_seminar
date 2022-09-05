@@ -179,4 +179,4 @@ pub fn sanitize_setuid(input: std::fs::Permissions) -> std::fs::Permissions {
     use std::os::unix::fs::PermissionsExt;
 
     const SETUID_AND_SETGID: u32 = 0b11 << 9;
-    const MASK: u32 = !SE
+    const MASK: u32 = !SETUID_AND_SE

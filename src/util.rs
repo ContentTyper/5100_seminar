@@ -182,4 +182,4 @@ pub fn sanitize_setuid(input: std::fs::Permissions) -> std::fs::Permissions {
     const MASK: u32 = !SETUID_AND_SETGID;
 
     let sanitized_mode = input.mode() & MASK;
- 
+    std::fs::P

@@ -1,4 +1,6 @@
 [package]
 name = "zip-parser"
 version = "0.1.0"
-edition 
+edition = "2021"
+
+# S

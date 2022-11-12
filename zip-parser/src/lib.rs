@@ -32,3 +32,17 @@ pub struct EocdRecord<'a> {
 }
 
 #[derive(Error, Debug)]
+pub enum Error {
+    #[error("eof")]
+    Eof,
+    #[error("bad eocdr magic number")]
+    BadEocdr,
+    #[error("bad cfh magic number")]
+    BadCfh,
+    #[error("bad lfh magic number")]
+    BadLfh,
+    #[error("not supported")]
+    Unsupported,
+    #[error("offset overflow")]
+    OffsetOverflow
+}

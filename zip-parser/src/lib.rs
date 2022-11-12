@@ -22,3 +22,13 @@ pub mod system {
 #[non_exhaustive]
 #[derive(Debug)]
 pub struct EocdRecord<'a> {
+    pub disk_nbr: u16,
+    pub cd_start_disk: u16,
+    pub disk_cd_entries: u16,
+    pub cd_entries: u16,
+    pub cd_size: u32,
+    pub cd_offset: u32,
+    pub comment: &'a [u8]
+}
+
+#[derive(Error, Debug)]

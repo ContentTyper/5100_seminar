@@ -61,3 +61,15 @@ impl EocdRecord<'_> {
 
         let eocdr_buf = {
             let max_back_buf = buf.len()
+                .checked_sub(MAX_BACK_OFFSET)
+                .map(|pos| &buf[pos..])
+                .unwrap_or(buf);
+
+            let eocdr_offset = rfind(max_back_buf, EOCDR_SIGNATURE)
+                .ok_or(Error::BadEocdr)?;
+            &max_back_buf[eocdr_offset..]
+        };
+
+        let input = eocdr_buf;
+        let (input, _) = take(input, EOCDR_SIGNATURE.len())?;
+        let (input, disk_nbr) = read_u16(input)?;

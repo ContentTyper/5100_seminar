@@ -46,3 +46,18 @@ pub enum Error {
     #[error("offset overflow")]
     OffsetOverflow
 }
+
+impl From<Eof> for Error {
+    #[inline]
+    fn from(_err: Eof) -> Error {
+        Error::Eof
+    }
+}
+
+impl EocdRecord<'_> {
+    fn find(buf: &[u8]) -> Result<EocdRecord<'_>, Error> {
+        const EOCDR_SIGNATURE: &[u8; 4] = &[b'P', b'K', 5, 6];
+        const MAX_BACK_OFFSET: usize = 1024 * 128;
+
+        let eocdr_buf = {
+            let max_back_buf = buf.len()

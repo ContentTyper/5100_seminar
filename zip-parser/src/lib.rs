@@ -73,3 +73,16 @@ impl EocdRecord<'_> {
         let input = eocdr_buf;
         let (input, _) = take(input, EOCDR_SIGNATURE.len())?;
         let (input, disk_nbr) = read_u16(input)?;
+        let (input, cd_start_disk) = read_u16(input)?;
+        let (input, disk_cd_entries) = read_u16(input)?;
+        let (input, cd_entries) = read_u16(input)?;
+        let (input, cd_size) = read_u32(input)?;
+        let (input, cd_offset) = read_u32(input)?;
+        let (input, comment_len) = read_u16(input)?;
+        let (_input, comment) = take(input, comment_len.into())?;
+
+        Ok(EocdRecord {
+            disk_nbr,
+            cd_start_disk,
+            disk_cd_entries,
+            cd_entries,

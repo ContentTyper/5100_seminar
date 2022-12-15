@@ -86,3 +86,18 @@ impl EocdRecord<'_> {
             cd_start_disk,
             disk_cd_entries,
             cd_entries,
+            cd_size,
+            cd_offset,
+            comment
+        })
+    }
+}
+
+#[non_exhaustive]
+#[derive(Debug)]
+pub struct CentralFileHeader<'a> {
+    pub made_by_ver: u16,
+    pub extract_ver: u16,
+    pub gp_flag: u16,
+    pub method: u16,
+    pub mod_time: u16,

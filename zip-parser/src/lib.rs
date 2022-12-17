@@ -113,3 +113,17 @@ pub struct CentralFileHeader<'a> {
     pub extra: &'a [u8],
     pub comment: &'a [u8]
 }
+
+impl CentralFileHeader<'_> {
+    fn parse(input: &[u8]) -> Result<(&[u8], CentralFileHeader<'_>), Error> {
+        const CFH_SIGNATURE: &[u8; 4] = &[b'P', b'K', 1, 2];
+
+        let (input, expect_sig) = take(input, CFH_SIGNATURE.len())?;
+        if expect_sig != CFH_SIGNATURE {
+            return Err(Error::BadCfh);
+        }
+
+        let (input, made_by_ver) = read_u16(input)?;
+        let (input, extract_ver) = read_u16(input)?;
+        let (input, gp_flag) = read_u16(input)?;
+        let (input, method) = read_u16(input)?;

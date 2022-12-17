@@ -101,3 +101,15 @@ pub struct CentralFileHeader<'a> {
     pub gp_flag: u16,
     pub method: u16,
     pub mod_time: u16,
+    pub mod_date: u16,
+    pub crc32: u32,
+    pub comp_size: u32,
+    pub uncomp_size: u32,
+    pub disk_nbr_start: u16,
+    pub int_attrs: u16,
+    pub ext_attrs: u32,
+    pub lfh_offset: u32,
+    pub name: &'a [u8],
+    pub extra: &'a [u8],
+    pub comment: &'a [u8]
+}

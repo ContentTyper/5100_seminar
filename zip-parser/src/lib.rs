@@ -127,3 +127,12 @@ impl CentralFileHeader<'_> {
         let (input, extract_ver) = read_u16(input)?;
         let (input, gp_flag) = read_u16(input)?;
         let (input, method) = read_u16(input)?;
+        let (input, mod_time) = read_u16(input)?;
+        let (input, mod_date) = read_u16(input)?;
+        let (input, crc32) = read_u32(input)?;
+        let (input, comp_size) = read_u32(input)?;
+        let (input, uncomp_size) = read_u32(input)?;
+        let (input, name_len) = read_u16(input)?;
+        let (input, extra_len) = read_u16(input)?;
+        let (input, comment_len) = read_u16(input)?;
+        let (input, disk_nbr_start) = read_u16(input)?;

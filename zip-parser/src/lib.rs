@@ -168,3 +168,13 @@ impl CentralFileHeader<'_> {
 
 #[non_exhaustive]
 #[derive(Debug)]
+pub struct LocalFileHeader<'a> {
+    pub extract_ver: u16,
+    pub gp_flag: u16,
+    pub method: u16,
+    pub mod_time: u16,
+    pub mod_date: u16,
+    pub crc32: u32,
+    pub comp_size: u32,
+    pub uncomp_size: u32,
+    pub name: &'a [u8],

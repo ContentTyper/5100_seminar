@@ -159,3 +159,12 @@ impl CentralFileHeader<'_> {
             lfh_offset,
             name,
             extra,
+            comment
+        };
+
+        Ok((input, header))
+    }
+}
+
+#[non_exhaustive]
+#[derive(Debug)]

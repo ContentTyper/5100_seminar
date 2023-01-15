@@ -202,3 +202,10 @@ impl LocalFileHeader<'_> {
         let (input, extra_len) = read_u16(input)?;
         let (input, name) = take(input, name_len.into())?;
         let (input, extra) = take(input, extra_len.into())?;
+
+        let header = LocalFileHeader {
+            extract_ver,
+            gp_flag,
+            method,
+            mod_time,
+            mod_date,

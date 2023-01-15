@@ -178,3 +178,27 @@ pub struct LocalFileHeader<'a> {
     pub comp_size: u32,
     pub uncomp_size: u32,
     pub name: &'a [u8],
+    pub extra: &'a [u8]
+}
+
+impl LocalFileHeader<'_> {
+    fn parse(input: &[u8]) -> Result<(&[u8], LocalFileHeader<'_>), Error> {
+        const LFH_SIGNATURE: &[u8; 4] = &[b'P', b'K', 3, 4];
+
+        let (input, expect_sig) = take(input, LFH_SIGNATURE.len())?;
+        if expect_sig != LFH_SIGNATURE {
+            return Err(Error::BadLfh);
+        }
+
+        let (input, extract_ver) = read_u16(input)?;
+        let (input, gp_flag) = read_u16(input)?;
+        let (input, method) = read_u16(input)?;
+        let (input, mod_time) = read_u16(input)?;
+        let (input, mod_date) = read_u16(input)?;
+        let (input, crc32) = read_u32(input)?;
+        let (input, comp_size) = read_u32(input)?;
+        let (input, uncomp_size) = read_u32(input)?;
+        let (input, name_len) = read_u16(input)?;
+        let (input, extra_len) = read_u16(input)?;
+        let (input, name) = take(input, name_len.into())?;
+        let (input, extra) = take(input, extra_len.into())?;

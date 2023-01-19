@@ -209,3 +209,12 @@ impl LocalFileHeader<'_> {
             method,
             mod_time,
             mod_date,
+            crc32,
+            comp_size,
+            uncomp_size,
+            name,
+            extra
+        };
+
+        Ok((input, header))
+    }

@@ -218,3 +218,12 @@ impl LocalFileHeader<'_> {
 
         Ok((input, header))
     }
+}
+
+pub struct ZipArchive<'a> {
+    buf: &'a [u8],
+    eocdr: EocdRecord<'a>
+}
+
+impl ZipArchive<'_> {
+    pub fn parse(buf: &[u8]) -> Result<ZipArchive<'_>, Error> {

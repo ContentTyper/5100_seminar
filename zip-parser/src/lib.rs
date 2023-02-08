@@ -238,3 +238,13 @@ impl ZipArchive<'_> {
 
         Ok(ZipArchive { buf, eocdr })
     }
+
+    pub fn eocdr(&self) -> &EocdRecord<'_> {
+        &self.eocdr
+    }
+
+    pub fn entries(&self) -> Result<ZipEntries<'_>, Error> {
+        let offset: usize = self.eocdr.cd_offset.try_into()
+            .map_err(|_| Error::OffsetOverflow)?;
+        let buf = self.buf.get(offset..)
+            .ok_or(Error::OffsetOverflow)?;

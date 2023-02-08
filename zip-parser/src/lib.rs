@@ -227,3 +227,14 @@ pub struct ZipArchive<'a> {
 
 impl ZipArchive<'_> {
     pub fn parse(buf: &[u8]) -> Result<ZipArchive<'_>, Error> {
+        let eocdr = EocdRecord::find(buf)?;
+
+        if eocdr.disk_nbr != 0
+            || eocdr.cd_start_disk != 0
+            || eocdr.disk_cd_entries != eocdr.cd_entries
+        {
+            return Err(Error::Unsupported);
+        }
+
+        Ok(ZipArchive { buf, eocdr })
+    }

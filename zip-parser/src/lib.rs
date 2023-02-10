@@ -248,3 +248,10 @@ impl ZipArchive<'_> {
             .map_err(|_| Error::OffsetOverflow)?;
         let buf = self.buf.get(offset..)
             .ok_or(Error::OffsetOverflow)?;
+        let count = self.eocdr.cd_entries;
+
+        Ok(ZipEntries { buf, count })
+    }
+
+    pub fn read<'a>(&'a self, cfh: &CentralFileHeader) -> Result<(LocalFileHeader<'a>, &'a [u8]), Error> {
+        let offset: usize = cfh.lfh_offset.try_into()

@@ -263,3 +263,16 @@ impl ZipArchive<'_> {
 
         let size = cfh.comp_size.try_into()
             .map_err(|_| Error::OffsetOverflow)?;
+        let (_, buf) = take(input, size)?;
+
+        Ok((lfh, buf))
+    }
+}
+
+pub struct ZipEntries<'a> {
+    buf: &'a [u8],
+    count: u16
+}
+
+impl<'a> Iterator for ZipEntries<'a> {
+    type Item = Result<CentralFileHeader<'a>, Error>;

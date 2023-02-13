@@ -255,3 +255,11 @@ impl ZipArchive<'_> {
 
     pub fn read<'a>(&'a self, cfh: &CentralFileHeader) -> Result<(LocalFileHeader<'a>, &'a [u8]), Error> {
         let offset: usize = cfh.lfh_offset.try_into()
+            .map_err(|_| Error::OffsetOverflow)?;
+        let buf = self.buf.get(offset..)
+            .ok_or(Error::OffsetOverflow)?;
+
+        let (input, lfh) = LocalFileHeader::parse(buf)?;
+
+        let size = cfh.comp_size.try_into()
+            .map_err(|_| Error::OffsetOverflow)?;

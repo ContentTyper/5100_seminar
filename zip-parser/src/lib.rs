@@ -276,3 +276,15 @@ pub struct ZipEntries<'a> {
 
 impl<'a> Iterator for ZipEntries<'a> {
     type Item = Result<CentralFileHeader<'a>, Error>;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        let new_count = self.count.checked_sub(1)?;
+
+        let input = self.buf;
+        let (input, cfh) = match CentralFileHeader::parse(input) {
+            Ok(output) => output,
+            Err(err) => return Some(Err(err))
+        };
+
+        self.buf = input;
+        self.count = new_count;

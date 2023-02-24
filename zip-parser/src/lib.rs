@@ -288,3 +288,7 @@ impl<'a> Iterator for ZipEntries<'a> {
 
         self.buf = input;
         self.count = new_count;
+
+        Some(Ok(cfh))
+    }
+}
